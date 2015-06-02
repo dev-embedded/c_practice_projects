@@ -17,14 +17,21 @@
 
 int main()
 {
-	/* To test string operation functions in the ../lib_string sub-folder. */
+	/* To test string operation functions in the ../lib_src sub-folder. */
 	str_test();
 
 	/* To test buffer functions in the ../lib_src sub-folder. */
 	lib_buffer_test_dong();
-//	lib_buffer_dong();
+//	lib_buffer_test_joey();	
+//	lib_buffer_test_song();	
+//	lib_buffer_test_tao();
 
-	printf("Hello Eclipse! 20150514");
+//	lib_buffer_app_dong();
+//	lib_buffer_app_joey();
+//	lib_buffer_app_song();
+//	lib_buffer_app_tao();
+
+	printf("Hello Dong, Joey, Song & Tao! 20150601\n");
 
 	return 0;
 }
