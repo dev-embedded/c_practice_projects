@@ -2,8 +2,8 @@
  * The projects' filename: c_practice_projects.c
  *
  * The projects' goal:
- * 1. First aim is to test the other functions in the sub-folders: ./lib_string.
- * 2. Second aim is to test the functions of the buffer libraray in the sub-folders: ./lib_buffer.
+ * 1. First aim is to test the other functions in the sub-folders: ./lib_src.
+ * 2. Second aim is to test the functions of the buffer libraray in the sub-folders: ./lib_src.
  *
  * Notes:
  * The "main" function is found in c_practice_projects.c.
@@ -20,8 +20,8 @@ int main()
 	/* To test string operation functions in the ../lib_string sub-folder. */
 	str_test();
 
-	/* To test buffer functions in the ../lib_buffer sub-folder. */
-//	lib_buffer_test_dong();
+	/* To test buffer functions in the ../lib_src sub-folder. */
+	lib_buffer_test_dong();
 //	lib_buffer_dong();
 
 	printf("Hello Eclipse! 20150514");

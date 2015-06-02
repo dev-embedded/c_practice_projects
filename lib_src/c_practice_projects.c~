@@ -2,8 +2,8 @@
  * The projects' filename: c_practice_projects.c
  *
  * The projects' goal:
- * 1. First aim is to test the other functions in the sub-folders: ./lib_string.
- * 2. Second aim is to test the functions of the buffer libraray in the sub-folders: ./lib_buffer.
+ * 1. First aim is to test the other functions in the sub-folders: ./lib_src.
+ * 2. Second aim is to test the functions of the buffer libraray in the sub-folders: ./lib_src.
  *
  * Notes:
  * The "main" function is found in c_practice_projects.c.
@@ -13,8 +13,7 @@
  *     Author: LINGdong
  */
 
-/* All of projects' *.h are placed in includes.h */
-#include "../lib_include/includes.h"  
+#include "../lib_include/global.h"  
 
 int main()
 {
