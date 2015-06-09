@@ -8,7 +8,8 @@
 /* Select DEBUG mode or not */
 #define DEBUG
 
-#include <stdio.h>
+/* Add the lib_string project header file into the system. */
+#include "./lib_string.h"
 
 /*
  * DEBUG tag, ./lib_include/lib_buffer_test_dong.h and ./lib_buffer_dong.h are used for select lib_buffer_dong.h or lib_buffer_test_dong.h

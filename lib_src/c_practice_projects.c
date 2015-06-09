@@ -13,7 +13,8 @@
  *     Author: LINGdong
  */
 
-#include "../lib_include/global.h"  
+#include "../lib_include/global.h"
+#include <stdio.h>  
 
 int main()
 {
@@ -21,7 +22,7 @@ int main()
 	str_test();
 
 	/* To test buffer functions in the ../lib_src sub-folder. */
-	lib_buffer_test_dong();
+//	lib_buffer_test_dong();
 //	lib_buffer_test_joey();	
 //	lib_buffer_test_song();	
 //	lib_buffer_test_tao();
@@ -39,8 +40,10 @@ int main()
 /*
  * The projects' list: string libraray and buffer librarary.
  * List of fuctions for the string libraray:
- *
- *
+ * int ld_strlen();
+ * int ld_strcmp();
+ * char *ld_strcpy();
+ * char *ld_strcat();
  *
  * List of fuctions for the buffer libraray:
  * void lib_buffer_dong_create();

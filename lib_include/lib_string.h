@@ -1,38 +1,43 @@
-// 0. This is the lib_string.h
-// 1. For the constant values, NOT like functions, we can:
-//    1-a.	use #define CNAME value to define them in a ".h" file; then include this .h file
-//		  	in every .c file which will use these definitions.
-//	  1-b.	define the value in one .c file; and declare it with "extern" in a .h file; then
-//			include that .h file in every .c file which will use these definitions.
+/*
+ * 0. This is the lib_string.h
+ * 1. For the constant values, NOT like functions, we can:
+ *   1-a. use #define CNAME value to define them in a ".h" file; then include this .h file
+ *		  in every .c file which will use these definitions.
+ *	 1-b. define the value in one .c file; and declare it with "extern" in a .h file; then
+ *		  include that .h file in every .c file which will use these definitions.
+ */
 
-#ifndef LIB_STRING_H_
-#define LIB_STRING_H_
+#ifndef _LIB_STRING_H
+#define _LIB_STRING_H
 
-#define STR_SIZE 18   //the max length of a string
-#define _CPNA "Not Available!" 	//function NOT Ready for char* ()
-#define _INA -999				//function NOT Ready for int ()
+#define STR_SIZE 18   /* The max length of a string */
+#define _CPNA "Not Available!" 	/* Function NOT Ready for char *(), CPNA means Char Pointer is Not Available. */
+#define _INA -999				/* Function NOT Ready for int (), INA means Int is Not Available. */
 #define _S1 "0123456789"
 #define _S2 "aaa"
 #define _S3 "456"
 
-//The following declaration works with definition in str_test.c, but now, we try the #define, see up.
-//extern char *_S1, *_S2, *_CPNA;
-//extern int _INA;
+/* 
+ * The following declaration works with definition in str_test.c, but now, we try the #define, see up.
+ * extern char *_S1, *_S2, *_CPNA;
+ * extern int _INA;
+ */
 
-/**
-* 00. to test the string function.
-*     This function locations separately in str_test.c
-*     The others functions followed stored in a file named lib_str.c
-*/
+/*
+ * 00. to test the string function.
+ *     This function locations separately in str_test.c
+ *     The others functions followed stored in a file named lib_str.c
+ */
+
 int str_test();
 
-/**
-* 01. xx_strlen() is to get the length of a string, '\0' is not included in.
-*     xx is the developer's name for short: ld for Ling Dong,
-*     st for Sun Tao, zs for Zhou Song, and jq for Juequ
-*     _strlen is the original lib function for comparation.
-*/
-int ld_strlen();
+/*
+ * 01. xx_strlen() is to get the length of a string, '\0' is not included in.
+ *     xx is the developer's name for short: ld for LINGdong,
+ *     st for Sun Tao, zs for Zhou Song, and jq for Juequ
+ *     _strlen is the original lib function for comparation.
+ */
+int ld_strlen(const char *string);
 int jq_strlen(const char* str);
 int st_strlen(const char *str);
 int zs_strlen();
@@ -91,4 +96,4 @@ int st_strloc(char *str, char *substr);
 //JQ: return the first substr location scanning from a given begin point
 int jq_strloc(const char* str, const char* substr, const int bp);  //bp: begin point.
 
-#endif  /* LIB_STRING_H_ */
+#endif  /* _LIB_STRING_H */
