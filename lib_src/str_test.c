@@ -19,19 +19,20 @@
  * char *_S2="aaa";
  */
 
-
 int str_test()
 {
-	printf("Now, we are going to test the string lib functions created by ourselves.\n");
-	printf("We have 4 functions: strlen, strcmp, strcat, strcpy.\n");
-	printf("There are two strings, string 1 is: "_S1 ", string 2 is "_S2 ".\n");
+	printf("\nNow, we are going to test the string library functions created by ourselves.\n");
+	printf("We have 4 functions: strlen, strcmp, strcat & strcpy.\n");
+	printf("There are two strings: string 1 is: "_S1"; string 2 is: "_S2".\n");
 
 	char str1[STR_SIZE], str2[STR_SIZE], stro[STR_SIZE];
+	int DESTINATION_SIZE = sizeof(str2);
+	
 	strcpy(str1,_S1); strcpy(str2, _S2); strcpy(stro,_S3);
-	printf("Note: if the (int) result=%d, or the (char*) result=" _S1 "; means the function is not ready!!!\n",_INA);
-	printf("Test Start ... ...\n");
+	printf("Note: if the (int) result = %d, or the (char *) result = "_S1" means the function is not ready!\n\n",_INA);
+	printf("Test Start ... ...\n\n");
 
-	printf("1. test the _strlen() of string 1:\n");
+	printf("1. test the xx_strlen() of string 1:\n");
 	printf("LINGdong's answer = %2d; JQ's answer=%2d; ST's answer=%2d; ZS's answer=%2d.\n",\
 		ld_strlen(str1), jq_strlen(str1), st_strlen(str1), zs_strlen(str1));
 
@@ -49,8 +50,8 @@ int str_test()
 	printf("ZS's answer=%s\n", zs_strcat(str1,str2));
 	strcpy(str1,_S1); strcpy(str2, _S2);
 
-	printf("\n4. test the _strcpy() to copy string 2 to string 1:\n");
-	printf("LINGdong's answer=%s\n", ld_strcpy(str1,str2));
+	printf("\n4. test the xx_strcpy() for copying string 2 into string 1:\n");
+	printf("LINGdong's answer = %s\n", ld_strcpy(str1, str2, DESTINATION_SIZE));
 	strcpy(str1,_S1); strcpy(str2, _S2);
 	printf("JQ's answer=%s\n", jq_strcpy(str1,str2));
 	strcpy(str1,_S1); strcpy(str2, _S2);

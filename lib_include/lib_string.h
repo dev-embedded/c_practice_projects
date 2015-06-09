@@ -17,6 +17,7 @@
 #define _S2 "aaa"
 #define _S3 "456"
 
+//int nDestSize = 3;
 /* 
  * The following declaration works with definition in str_test.c, but now, we try the #define, see up.
  * extern char *_S1, *_S2, *_CPNA;
@@ -65,7 +66,7 @@ int _strcmp();
 /**
 * 04. xx_strcpy() is to copy str2 to str1. then return str1.
 */
-char* ld_strcpy();
+char *ld_strcpy(char *destination_string, const char *original_string, int nDestSize);
 char* jq_strcpy(char* str1, const char* str2);
 char *st_strcpy(char *dest, const char *src);
 char* zs_strcpy();

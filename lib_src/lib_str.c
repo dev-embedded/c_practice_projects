@@ -3,14 +3,26 @@
 
 #include "../lib_include/lib_string.h"
 #include <assert.h>
+#include <string.h>
 #include <stdio.h>
+
+/*
+ *
+ * The process of passing a string '_S1'(_S2 or _S3) to the function - ld_strlen():
+ * (str_test.c)int ld_strlen(_S1)-_S1 --> (lib_str.c)ld_strlen(const char *string)-*string --> string[](lib_str.c)
+ * The string-'_S1' --> the pointer-*string --> the array-string[]
+ *
+ */
 
 int ld_strlen(const char *string)
 {
 	int length;
 
 	assert(string != NULL); 
-	for(length = 0; string[length] != '\0'; length++);
+	for(length = 0; length < STR_SIZE; length++)
+		{
+			if(string[length] == '\0') return (length);
+		}
 
 	return length;
 }
@@ -174,13 +186,25 @@ int _strcmp()
 	return _INA;
 }
 
-/**
+/*
  * 04. xx_strcpy() is to copy str2 to str1. then return str1.
  */
-char* ld_strcpy()
+char *ld_strcpy(char *destination_string, const char *original_string, int DESTINATION_SIZE)
 {
-	return _CPNA;
-}
+    int length=strlen(original_string)+1;
+
+	/* A NULL check for the 2 strings. */
+	assert((original_string != NULL) && (destination_string != NULL)); 
+
+
+	if(length > DESTINATION_SIZE) length = DESTINATION_SIZE;
+
+    memcpy(destination_string, original_string, length);
+
+    *(destination_string + length - 1) = '\0';
+
+	return destination_string;
+}	
 
 char* jq_strcpy(char* str1, const char* str2)
 {
