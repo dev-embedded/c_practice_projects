@@ -19,10 +19,10 @@
 int main()
 {
 	/* To test string operation functions in the ../lib_src sub-folder. */
-	str_test();
+//	str_test();
 
 	/* To test buffer functions in the ../lib_src sub-folder. */
-//	lib_buffer_test_dong();
+	lib_buffer_test_dong();
 //	lib_buffer_test_joey();	
 //	lib_buffer_test_song();	
 //	lib_buffer_test_tao();
