@@ -4,5 +4,8 @@ bin
 # Ignore 'obj' folder
 obj
 
-# Ignore
-*.[ch]~
+# Ignore *~ files
+*~
+
+# Ignore *.txt project requirement files
+*.txt
