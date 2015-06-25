@@ -1,58 +1,57 @@
 #include <lib_buffer_test_dong.h>
-int LINKED_LIST_NODE = 3;
+//int NODE_NUM = 3;
 
 void lib_buffer_test_dong()
 {
-//	struct lib_buffer *buffer_linked_list;
+	NODE *head;
+	char command;  /* Selection to w(write) or r(read) a data into a buffer. */
 
-	struct singly_linked_list *assistor_pointer;
+	head = singly_linked_list_create(NODE_NUM);
+	printf("The ring-buffer was found.\n");
+	singly_linked_list_show(head, NODE_NUM);
 
-	assistor_pointer = singly_linked_list_create(LINKED_LIST_NODE);
+	while(1)
+	{
+		printf("please select w(write) or r(read) a data into the buffer.\n");
+		scanf("%c",&command);
 
-	singly_linked_list_show(assistor_pointer, LINKED_LIST_NODE);
+		if(command == 'r')
+		{
+			lib_buffer_read(head, NODE_NUM);
+			singly_linked_list_show(head, NODE_NUM);
+		}
+		
+		if(command == 'w')
+		{
+			lib_buffer_write(head, NODE_NUM);
+			singly_linked_list_show(head, NODE_NUM);
+		}
+	}
 
-	return 0;
-}
-
-/*** library buffer functions ***/
-struct lib_buffer *lib_buffer_create()
-{
-	return 0;
-}
-
-struct lib_buffer *lib_buffer_free()
-{
-	return 0;
-}
-
-struct lib_buffer *lib_buffer_write()
-{
-	return 0;
-}
-
-struct lib_buffer *lib_buffer_read()
-{
 	return 0;
 }
 
 /*** singly linked list functions ***/
-struct singly_linked_list *singly_linked_list_create(int LINKED_LIST_NODE)
+NODE *singly_linked_list_create(int node_num)
 {
-	int list_data, node;
+	int node;
 	/* create *head & *tail needed by a node. pointer here is used as operate assistor. */
-	struct singly_linked_list *head, *tail, *pointer;
+	NODE *head, *tail, *pointer;
 
 	head = tail = NULL;  /* reset *head & tail to 0. */
 
 	/* create the nodes required. */
-	for(node = 0; node < LINKED_LIST_NODE; node++)
+	for(node = 0; node < node_num; node++)
 		{	
 			/* Enter the linked list data. */
-			printf("\nEnter the linked_list_data: ");
-			scanf("%d", &list_data);
+/*			printf("\nEnter the linked_list_data: ");
+			scanf("%d", &list_data);*/
+
+			/* Assign list_data = 0, because this a ring buffer. */
+			int list_data = 0;
 
 			/* Allocate memory space, assign the data & set *next to NULL for a node creation. */
-			pointer = (struct singly_linked_list *) malloc(LINKED_LIST_LENGTH);
+			pointer = (NODE *) malloc(LINKED_LIST_LENGTH);
 			pointer->list_data = list_data;
 			pointer->next = NULL;
 		
@@ -69,38 +68,55 @@ struct singly_linked_list *singly_linked_list_create(int LINKED_LIST_NODE)
 	return (head);
 }
 
-struct singly_linked_list *singly_linked_list_delete()
+NODE *singly_linked_list_delete()
 {
 	return 0;
 }
 
-struct singly_linked_list *singly_linked_list_length()
-{
-	return 0;
-}
-
-struct singly_linked_list *singly_linked_list_insert()
-{
-	return 0;
-}
-
-struct singly_linked_list *singly_linked_list_sort()
-{
-	return 0;
-}
-
-struct singly_linked_list *singly_linked_list_show(struct singly_linked_list *head, int LINKED_LIST_NODE)
+int singly_linked_list_show(NODE *head, int node_num)
 {
 	int node;
 	/* Pointer here is used as operate assistor. */
-    struct singly_linked_list *pointer;
+    NODE *pointer;
 
 	pointer = head;  /* Assign the linked list to pointer. */
-    for(node = 0; node < LINKED_LIST_NODE; node++)
+    for(node = 0; node < node_num; node++)
 		{
-			printf("\nThe linked list data is: %d\n", pointer->list_data);
+			printf("The linked list data is: %d.\n", pointer->list_data);
 			pointer = pointer->next;  /* Set next node to pointer. */
 	    }
+
+	return 0;
+}
+
+/*** library buffer functions ***/
+int lib_buffer_write(NODE *head, int node_num)
+{
+	NODE *current;
+	int i, value = 0;
+
+//	current = head->next;
+	for(i = 0; i < node_num; i++)
+	{
+		current->list_data = value++;
+		printf("Number written is: %d.\n", current->list_data);
+		current = current->next;
+	}
+
+	return 0;
+}
+
+int lib_buffer_read(NODE *head, int node_num)
+{
+	NODE *current;
+	int i;	
+
+	current = head->next;
+	for(i = 0; i < node_num; i++)
+	{
+		printf("Number read is: %d.\n", current->list_data);
+		current = current->next;
+	}
 
 	return 0;
 }
